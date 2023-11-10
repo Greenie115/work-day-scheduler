@@ -1,14 +1,17 @@
-var currentDate = dayjs();
-var formattedDate = currentDate.format('YYYY-MM-DD HH:mm:ss');
 var dateAndTimeP = document.getElementById("currentDay")
-var timer = dateAndTimeP.textContent = formattedDate;
 
+function updateClock(){
+    var currentDate = dayjs();
+    var formattedDate = currentDate.format('YYYY-MM-DD HH:mm:ss');
+   
+    dateAndTimeP.textContent = formattedDate; 
+}
 
 function clock(){
-    var currentHour = currentDate.hour()
+    var currentHour = dayjs().hour()
     console.log(currentHour)
 }
 
-// setInterval(function(){
-//     dateAndTimeP.textContent = formattedDate;
-// }, 1000);
+updateClock();
+setInterval(updateClock, 1000)
+clock();
