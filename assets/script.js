@@ -12,30 +12,40 @@ var scheduleHour16 = document.querySelector('#workHour16').innerText
 var scheduleHour17 = document.querySelector('#workHour17').innerText
 var inputBox = document.querySelectorAll('.input')
 
-var allHours = [scheduleHour9, scheduleHour10, scheduleHour11, scheduleHour12, scheduleHour13, scheduleHour14, scheduleHour15, scheduleHour16, scheduleHour17]
-console.log(inputBox.setAttribute("class", "past"))
+var input9 = document.getElementById("input9")
+
+
+// var nodeItem = scheduleHour11.item(0)
+// console.log(scheduleHour9)
+// console.log(currentHour)
+// console.log(input9.setAttribute('class', 'present'))
+
+// var allHours = [scheduleHour, scheduleHour10, scheduleHour11, scheduleHour12, scheduleHour13, scheduleHour14, scheduleHour15, scheduleHour16, scheduleHour17]
+
 
 function updateClock(){
     var currentDate = dayjs();
-    var formattedDate = currentDate.format('dddd-d-MMM-YYYY HH:mm:ss');
-   
+    var formattedDate = currentDate.format('YYYY-MM-DD HH:mm:ss');
+
     dateAndTimeP.textContent = formattedDate; 
 }
+
 updateClock();
 setInterval(updateClock, 1000)
-// clock();
+
 // ======== END =========
 
 //1 - If the time has passed, make the to do form grey
-for(i = 8; currentHour; i++){
-    if(currentHour == allHours[i]){
-        inputBox.setAttribute("class", "present")
-        }else if(currentHour < allHours[i]) {
-            inputBox.setAttribute("class", "future")
-        } else {
-            inputBox.setAttribute("class","past")
+if (scheduleHour9 == currentHour){
+    var input9 = document.getElementById("input9")
+    input9.setAttribute('class', 'present')
+    console.log(input9)
+    } else if (scheduleHour9 > currentHour){
+        input9.setAttribute('class', 'future')
+    } else {
+        input9.setAttribute('class', 'past')
     }
-}
+
 
 
 // ELSE IF the time is now, make the input form red
