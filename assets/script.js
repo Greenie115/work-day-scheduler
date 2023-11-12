@@ -12,6 +12,7 @@ var scheduleHour16 = document.querySelector('#workHour16').innerText
 var scheduleHour17 = document.querySelector('#workHour17').innerText
 var inputBox = document.querySelectorAll('.input')
 
+// variables targeting each input
 var input9 = document.getElementById("input9")
 var input10 = document.getElementById("input10")
 var input11 = document.getElementById("input11")
@@ -22,10 +23,9 @@ var input15 = document.getElementById("input15")
 var input16 = document.getElementById("input16")
 var input17 = document.getElementById("input17")
 
-// var nodeItem = scheduleHour11.item(0)
-// console.log(scheduleHour9)
+var saveBtn9 = document.getElementById('saveBtn9')
+
 // console.log(currentHour)
-// console.log(input9.setAttribute('class', 'present'))
 
 // var allHours = [scheduleHour, scheduleHour10, scheduleHour11, scheduleHour12, scheduleHour13, scheduleHour14, scheduleHour15, scheduleHour16, scheduleHour17]
 
@@ -113,6 +113,23 @@ if (scheduleHour17 == currentHour){
     } else {
         input17.setAttribute('class', 'past')
 }
+
+function renderLastInput() {
+    message9 = localStorage.getItem("message9");
+    if (!message9) {
+      return;
+    }
+    input9.textContent = message9
+}
+
+saveBtn9.addEventListener('click', function(event){
+    event.preventDefault;
+    console.log('clicked')
+    var message9 = document.querySelector('message9').textContent
+
+    localStorage.setItem("message9", message9)
+    renderLastInput()
+})
 
 // ELSE IF the time is now, make the input form red
 // ELSE, the time is in the future, make the input box green
