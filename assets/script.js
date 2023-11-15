@@ -26,14 +26,16 @@ var input17 = document.getElementById("input17")
 var saveBtn9 = document.getElementById('saveBtn9')
 
 // console.log(currentHour)
+var text9 = ''
+var hourText = ''
 
 // var allHours = [scheduleHour, scheduleHour10, scheduleHour11, scheduleHour12, scheduleHour13, scheduleHour14, scheduleHour15, scheduleHour16, scheduleHour17]
 
-function updateClock(){
+function updateClock() {
     var currentDate = dayjs();
     var formattedDate = currentDate.format('YYYY-MM-DD HH:mm:ss');
 
-    dateAndTimeP.textContent = formattedDate; 
+    dateAndTimeP.textContent = formattedDate;
 }
 
 updateClock();
@@ -42,95 +44,95 @@ setInterval(updateClock, 1000)
 // ======== END =========
 
 // 1 - If the time has passed, make the to do form grey
-if (scheduleHour9 == currentHour){
+if (scheduleHour9 == currentHour) {
     input9.setAttribute('class', 'present')
-    } else if (scheduleHour9 > currentHour){
-        input9.setAttribute('class', 'future')
-    } else {
-        input9.setAttribute('class', 'past')
+} else if (scheduleHour9 > currentHour) {
+    input9.setAttribute('class', 'future')
+} else {
+    input9.setAttribute('class', 'past')
 }
 
-if (scheduleHour10 == currentHour){
+if (scheduleHour10 == currentHour) {
     input10.setAttribute('class', 'present')
-    } else if (scheduleHour10 > currentHour){
-        input10.setAttribute('class', 'future')
-    } else {
-        input10.setAttribute('class', 'past')
+} else if (scheduleHour10 > currentHour) {
+    input10.setAttribute('class', 'future')
+} else {
+    input10.setAttribute('class', 'past')
 }
 
-if (scheduleHour11 == currentHour){
+if (scheduleHour11 == currentHour) {
     input11.setAttribute('class', 'present')
-    } else if (scheduleHour11 > currentHour){
-        input11.setAttribute('class', 'future')
-    } else {
-        input11.setAttribute('class', 'past')
+} else if (scheduleHour11 > currentHour) {
+    input11.setAttribute('class', 'future')
+} else {
+    input11.setAttribute('class', 'past')
 }
 
-if (scheduleHour12 == currentHour){
+if (scheduleHour12 == currentHour) {
     input12.setAttribute('class', 'present')
-    } else if (scheduleHour12 > currentHour){
-        input12.setAttribute('class', 'future')
-    } else {
-        input12.setAttribute('class', 'past')
-    }
+} else if (scheduleHour12 > currentHour) {
+    input12.setAttribute('class', 'future')
+} else {
+    input12.setAttribute('class', 'past')
+}
 
-if (scheduleHour13 == currentHour){
+if (scheduleHour13 == currentHour) {
     input13.setAttribute('class', 'present')
-    } else if (scheduleHour13 > currentHour){
-        input13.setAttribute('class', 'future')
-    } else {
-        input13.setAttribute('class', 'past')
-    }
+} else if (scheduleHour13 > currentHour) {
+    input13.setAttribute('class', 'future')
+} else {
+    input13.setAttribute('class', 'past')
+}
 
-if (scheduleHour14 == currentHour){
+if (scheduleHour14 == currentHour) {
     input14.setAttribute('class', 'present')
-    } else if (scheduleHour14 > currentHour){
-        input14.setAttribute('class', 'future')
-    } else {
-        input14.setAttribute('class', 'past')
-    }
+} else if (scheduleHour14 > currentHour) {
+    input14.setAttribute('class', 'future')
+} else {
+    input14.setAttribute('class', 'past')
+}
 
-if (scheduleHour15 == currentHour){
+if (scheduleHour15 == currentHour) {
     input15.setAttribute('class', 'present')
-    } else if (scheduleHour15 > currentHour){
-        input15.setAttribute('class', 'future')
-    } else {
-        input15.setAttribute('class', 'past')
-    }
+} else if (scheduleHour15 > currentHour) {
+    input15.setAttribute('class', 'future')
+} else {
+    input15.setAttribute('class', 'past')
+}
 
-if (scheduleHour16 == currentHour){
+if (scheduleHour16 == currentHour) {
     input16.setAttribute('class', 'present')
-    } else if (scheduleHour16 > currentHour){
-        input16.setAttribute('class', 'future')
-    } else {
-        input16.setAttribute('class', 'past')
-    }
+} else if (scheduleHour16 > currentHour) {
+    input16.setAttribute('class', 'future')
+} else {
+    input16.setAttribute('class', 'past')
+}
 
-if (scheduleHour17 == currentHour){
+if (scheduleHour17 == currentHour) {
     input17.setAttribute('class', 'present')
-    } else if (scheduleHour17 > currentHour){
-        input17.setAttribute('class', 'future')
-    } else {
-        input17.setAttribute('class', 'past')
+} else if (scheduleHour17 > currentHour) {
+    input17.setAttribute('class', 'future')
+} else {
+    input17.setAttribute('class', 'past')
 }
 
-function renderLastInput() {
-    message9 = localStorage.getItem("message9");
-    if (!message9) {
-      return;
-    }
-    input9.textContent = message9
-}
+// function renderLastInput() {
 
-saveBtn9.addEventListener('click', function(event){
+    
+//     console.log(scheduleText9)
+// }
+
+saveBtn9.onclick = saveFeature
+
+function saveFeature(event) {
     event.preventDefault;
-    console.log('clicked')
-    var message9 = document.querySelector('message9').textContent
+    text9 = input9.value
+    localStorage.setItem('text9am', text9)
+    input9.innerText = localStorage.getItem('text9am')
+    
+}
 
-    localStorage.setItem("message9", message9)
-    renderLastInput()
-})
-
+// console.log(inputBox)
 // ELSE IF the time is now, make the input form red
 // ELSE, the time is in the future, make the input box green
 
